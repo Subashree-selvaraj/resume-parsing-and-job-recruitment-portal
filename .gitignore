@@ -55,7 +55,11 @@ data/
 datasets/
 *.csv
 *.xlsx
-*.json
+# Exclude large data JSON files but allow package.json and config files
+data*.json
+dataset*.json
+training*.json
+model*.json
 
 # Environment variables
 .env
