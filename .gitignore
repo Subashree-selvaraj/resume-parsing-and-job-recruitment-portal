@@ -47,7 +47,10 @@ MANIFEST
 *.ckpt
 *.pb
 *.tflite
-models/
+# ML models directory (not backend models)
+ml_models/
+ai_models/
+trained_models/
 data/
 datasets/
 *.csv
