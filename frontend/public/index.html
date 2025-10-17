@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="description" content="Professional Job Recruitment Portal with ATS - Connect job seekers with top recruiters" />
+    <meta name="keywords" content="jobs, recruitment, career, hiring, ATS, resume, job portal" />
+    <meta name="author" content="Sureshkumar C" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourjobportal.com/" />
+    <meta property="og:title" content="Job Recruitment Portal - Find Your Dream Job" />
+    <meta property="og:description" content="Professional Job Recruitment Portal with ATS - Connect job seekers with top recruiters" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourjobportal.com/" />
+    <meta property="twitter:title" content="Job Recruitment Portal - Find Your Dream Job" />
+    <meta property="twitter:description" content="Professional Job Recruitment Portal with ATS - Connect job seekers with top recruiters" />
+    <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <title>Job Recruitment Portal - Find Your Dream Job</title>
+    
+    <style>
+      /* Initial loading styles */
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        overflow-x: hidden;
+      }
+      
+      /* Loading animation */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-in-out;
+      }
+      
+      #loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 2rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      .loading-text {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      /* Prevent FOUC */
+      #root {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      #root.loaded {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-logo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="loading-text">Job Recruitment Portal</div>
+      <div class="loading-spinner"></div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Hide loading screen when React app is ready
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const root = document.getElementById('root');
+          
+          if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+              loadingScreen.style.display = 'none';
+              root.classList.add('loaded');
+            }, 500);
+          }
+        }, 1500); // Minimum loading time for brand awareness
+      });
+    </script>
+  </body>
+</html>
